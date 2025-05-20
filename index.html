@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mo3adelk - GPA Calculator</title>
+    <link rel="icon" type="image/png" href="number-blocks.png">
+    <style>
+        :root {
+            --primary: hsl(140, 59%, 55%);
+            --primary-dark: hsl(140, 59%, 45%);
+            --dark: hsl(0, 0%, 20%);
+            --light: hsl(0, 0%, 95%);
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', monospace;
+            background-color: var(--dark);
+            color: var(--light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 2rem;
+            max-width: 800px;
+        }
+        
+        h1 {
+            color: var(--primary);
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            text-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+        }
+        
+        .ghost-container {
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        .links-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .calc-link {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--light);
+            background-color: rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--primary);
+            border-radius: 8px;
+            padding: 1.5rem;
+            width: 200px;
+            transition: all 0.3s ease;
+        }
+        
+        .calc-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        
+        .calc-link h2 {
+            color: var(--primary);
+            margin: 1rem 0 0.5rem;
+        }
+        
+        .calc-link p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .device-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        footer {
+            margin-top: 3rem;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+        
+        /* Ghost animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        .ghost {
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px rgba(46, 204, 113, 0.5));
+        }
+        
+        /* Pixel button style */
+        .pixel-button {
+            background-color: var(--primary);
+            color: var(--dark);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            position: relative;
+            margin: 0.5rem;
+            box-shadow: 
+                4px 4px 0 var(--primary-dark),
+                4px 4px 0 2px var(--dark);
+            transition: all 0.2s ease;
+        }
+        
+        .pixel-button:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 
+                2px 2px 0 var(--primary-dark),
+                2px 2px 0 2px var(--dark);
+        }
+        
+        .pixel-button:active {
+            transform: translate(4px, 4px);
+            box-shadow: 
+                0px 0px 0 var(--primary-dark),
+                0px 0px 0 2px var(--dark);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mo3adelk GPA Calculator</h1>
+        
+        <div class="ghost-container">
+            <!-- Ghost SVG -->
+            <svg viewBox="0 0 14 14" class="ghost" width="100" height="100">
+                <defs>
+                    <rect id="pixel-dot-rect" x="0.175" y="0.175" width="0.7" height="0.7" rx="0.2" />
+                    <pattern id="pixel-dot-pattern" viewBox="0 0 1 1" width="1" height="1" patternUnits="userSpaceOnUse">
+                        <use fill="hsl(140, 59%, 55%)" href="#pixel-dot-rect" />
+                    </pattern>
+                    <mask id="pixel-dot-mask">
+                        <rect fill="white" width="14" height="14" />
+                        <path transform="translate(0 0.5)" fill="none" stroke="black" d="M 0 0 h5M 9 0h5 M 0 1h3 M 11 1h3 M 0 2h2 M 12 2h2M 0 3h1 M 13 3h1M 0 4h1 M 13 4h1 M 0 5h1 M 13 5h1 M 4 12h1 M 9 12h1 M 0 13h1 M 3 13h3 M8 13h3 M 13 13h1" />
+                    </mask>
+                </defs>
+                <rect mask="url(#pixel-dot-mask)" fill="url(#pixel-dot-pattern)" width="14" height="14" />
+                <g class="eye">
+                    <g transform="translate(2 3)">
+                        <path transform="translate(0 0.5)" fill="none" stroke="white" d="M 1 0 h2 M 0 1h4 M 0 2h4 M 0 3h4 M 1 4h2" />
+                        <g fill="black" class="dot">
+                            <use transform="translate(1 1)" href="#pixel-dot-rect" />
+                            <use transform="translate(2 1)" href="#pixel-dot-rect" />
+                            <use transform="translate(1 2)" href="#pixel-dot-rect" />
+                            <use transform="translate(2 2)" href="#pixel-dot-rect" />
+                        </g>
+                    </g>
+                </g>
+                <g class="eye">
+                    <g transform="translate(8 3)">
+                        <path transform="translate(0 0.5)" fill="none" stroke="white" d="M 1 0 h2 M 0 1h4 M 0 2h4 M 0 3h4 M 1 4h2" />
+                        <g fill="black" class="dot">
+                            <use transform="translate(1 1)" href="#pixel-dot-rect" />
+                            <use transform="translate(2 1)" href="#pixel-dot-rect" />
+                            <use transform="translate(1 2)" href="#pixel-dot-rect" />
+                            <use transform="translate(2 2)" href="#pixel-dot-rect" />
+                        </g>
+                    </g>
+                </g>
+            </svg>
+        </div>
+        
+        <div class="links-container">
+            <a href="pc2.html" class="calc-link">
+                <div class="device-icon">💻</div>
+                <h2>PC Version</h2>
+                <p>Optimized for desktop computers with larger screens</p>
+                <button class="pixel-button">Open</button>
+            </a>
+            
+            <a href="ph2.html" class="calc-link">
+                <div class="device-icon">📱</div>
+                <h2>Mobile Version</h2>
+                <p>Designed for smartphones and touch screens</p>
+                <button class="pixel-button">Open</button>
+            </a>
+        </div>
+        
+        <footer>
+            Calculate your university GPA with ease | amir © 2025
+        </footer>
+    </div>
+</body>
+</html>

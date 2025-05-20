@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University GPA Calculator</title>
+    <link rel="icon" type="image/png" href="number-blocks.png">
+    <link rel="stylesheet" href="s2.css">
+    
+</head>
+<body>
+    <main>
+        <div id="header">
+            <h1>University GPA Calculator</h1>
+            <p>Enter your grades for each subject to calculate your semester GPA</p>
+        </div>
+
+        <div id="inputs-container">
+            <!-- Algorithms (Coefficient 4) -->
+            <div class="subject-group">
+                <h3>Algorithms (Coeff: 4)</h3>
+                <div class="input-field">
+                    <label>Exam:</label>
+                    <input type="number" id="exame algo" min="0" max="20" step="0.1">
+                </div>
+                <div class="input-field">
+                    <label>TD:</label>
+                    <input type="number" id="td algo" min="0" max="20" step="0.1">
+                </div>
+                <div class="input-field">
+                    <label>TP:</label>
+                    <input type="number" id="tp algo" min="0" max="20" step="0.1">
+                </div>
+            </div>
+
+            <!-- Architecture (Coefficient 4) -->
+            <div class="subject-group">
+                <h3>Architecture (Coeff: 4)</h3>
+                <div class="input-field">
+                    <label>Exam:</label>
+                    <input type="number" id="exame arch" min="0" max="20" step="0.1">
+                </div>
+                <div class="input-field">
+                    <label>TD:</label>
+                    <input type="number" id="td arch" min="0" max="20" step="0.1">
+                </div>
+            </div>
+
+            <!-- Algebra (Coefficient 3) -->
+            <div class="subject-group">
+                <h3>Algebra (Coeff: 3)</h3>
+                <div class="input-field">
+                    <label>Exam:</label>
+                    <input type="number" id="exame algb" min="0" max="20" step="0.1">
+                </div>
+                <div class="input-field">
+                    <label>TD:</label>
+                    <input type="number" id="td algb" min="0" max="20" step="0.1">
+                </div>
+            </div>
+
+            <!-- Analysis (Coefficient 3) -->
+            <div class="subject-group">
+                <h3>Analysis (Coeff: 3)</h3>
+                <div class="input-field">
+                    <label>Exam:</label>
+                    <input type="number" id="exame ana" min="0" max="20" step="0.1">
+                </div>
+                <div class="input-field">
+                    <label>TD:</label>
+                    <input type="number" id="td ana" min="0" max="20" step="0.1">
+                </div>
+            </div>
+
+            <!-- Logic (Coefficient 3) -->
+            <div class="subject-group">
+                <h3>Logic (Coeff: 3)</h3>
+                <div class="input-field">
+                    <label>Exam:</label>
+                    <input type="number" id="exame log" min="0" max="20" step="0.1">
+                </div>
+                <div class="input-field">
+                    <label>TD:</label>
+                    <input type="number" id="td log" min="0" max="20" step="0.1">
+                </div>
+            </div>
+
+            <!-- Probability (Coefficient 2) -->
+            <div class="subject-group">
+                <h3>Probability (Coeff: 2)</h3>
+                <div class="input-field">
+                    <label>Exam:</label>
+                    <input type="number" id="exame proba" min="0" max="20" step="0.1">
+                </div>
+                <div class="input-field">
+                    <label>TD:</label>
+                    <input type="number" id="td proba" min="0" max="20" step="0.1">
+                </div>
+            </div>
+
+            <!-- TEC (Coefficient 1) -->
+            <div class="subject-group">
+                <h3>TEC (Coeff: 1)</h3>
+                <div class="input-field">
+                    <label>Exam:</label>
+                    <input type="number" id="exame tec" min="0" max="20" step="0.1">
+                </div>
+            </div>
+        </div>
+
+        <div id="outputs">
+            <button id="button">Calculate GPA</button>
+            <div id="fo9">
+                <h3>🎉 Congratulations! Your GPA: </h3><p>0.00</p>
+            </div>
+            <div id="t7t">
+                <h3>😞 Your GPA: </h3><p>0.00</p>
+            </div>
+        </div>
+    </main>
+    <script src="lo.js"></script>
+</body>
+</html>
