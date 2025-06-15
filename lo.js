@@ -36,14 +36,14 @@ document.getElementById("button").addEventListener("click", function () {
     // حساب النقاط حسب المعاملات
     let Nalgo = ((exameAlgo * 0.6) + (tdAlgo * 0.2) + (tpAlgo * 0.2)) * 4;
     let Narch = ((exameArch * 0.6) + (tdArch * 0.4)) * 4;
-    let Nalgebre = ((exameAlgb * 0.6) + (tdAlgb * 0.4)) * 3;
-    let Nanalyse = ((exameAna * 0.6) + (tdAna * 0.4)) * 3;
-    let Nlogique = ((exameLog * 0.6) + (tdLog * 0.4)) * 3;
+    let Nalgebre = ((exameAlgb * 0.6) + (tdAlgb * 0.4)) * 4;
+    let Nanalyse = ((exameAna * 0.6) + (tdAna * 0.4)) * 4;
+    let Nlogique = ((exameLog * 0.6) + (tdLog * 0.4)) * 4;
     let Nproba = ((exameProba * 0.6) + (tdProba * 0.4)) * 2;
     let Ntec = exameTec * 1;
 
     let totalPoints = Nalgo + Narch + Nalgebre + Nanalyse + Nlogique + Nproba + Ntec;
-    let totalCoefficient = 4 + 4 + 3 + 3 + 3 + 2 + 1; // مجموع المعاملات = 20
+    let totalCoefficient = 4 + 4 + 4 + 4 + 4 + 2 + 1; // مجموع المعاملات = 20
     let moyenne = totalPoints / totalCoefficient;
 
     let fo9 = document.getElementById("fo9");
